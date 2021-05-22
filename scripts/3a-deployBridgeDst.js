@@ -3,7 +3,7 @@ const ethers = require('ethers');
 const Web3 = require('web3');
 
 const { fujiProvider, devMnemonicPath, safeReadFile } = require('./const');
-const { DST_ADDR } = require('./bridgeConstants');
+const { DST_ADDR, DST_BRIDGE_FEE } = require('./bridgeConstants');
 
 const bridge = require('../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json');
 
