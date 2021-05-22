@@ -36,7 +36,7 @@ const approveDeposit = async () => {``
                 from: accounts[0]
             });
         
-        console.log('Done! Success:', success);
+        console.log('Done!');
     }
     catch(error) {
         console.error("An error occurred in approveDeposit():\n", error);
