@@ -2,7 +2,7 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 const ethers = require('ethers');
 
-const { goerliProvider, devMnemonicPath, safeReadFile } = require('./const');
+const { ropstenProvider, devMnemonicPath, safeReadFile } = require('./const');
 const { SRC_BRIDGE, DST_ADDR, AKITA_RESOURCE_ID, SRC_BRIDGE_FEE } = require('./bridgeConstants');
 
 const compiledBridge = require('../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json');
@@ -12,7 +12,7 @@ console.log("Dev mnemonic OK:", devMnemonic != undefined);
 
 const provider = new HDWalletProvider(
     devMnemonic,
-    goerliProvider
+    ropstenProvider
 );
     
 const web3 = new Web3(provider);
@@ -23,7 +23,7 @@ const bridge = new web3.eth.Contract(
 );
 
 const deposit = async () => {
-    const amount = 100000000000
+    const amount = '100000000000000000000'
     const targetChainId = 1 // 0 is the source chain, 1 is the destination chain, 2+ are other future destination chains
 
     // Create the data

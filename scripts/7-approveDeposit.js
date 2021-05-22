@@ -1,7 +1,7 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 
-const { goerliProvider, devMnemonicPath, safeReadFile } = require('./const');
+const { ropstenProvider, devMnemonicPath, safeReadFile } = require('./const');
 const { AKITA_TOKEN, SRC_HANDLER } = require('./bridgeConstants');
 
 // TODO: Might not work for AKITA
@@ -12,7 +12,7 @@ console.log("Dev mnemonic OK:", devMnemonic != undefined);
 
 const provider = new HDWalletProvider(
     devMnemonic,
-    goerliProvider
+    ropstenProvider
 );
     
 const web3 = new Web3(provider);
@@ -30,7 +30,7 @@ const approveDeposit = async () => {``
 
         await erc20.methods.approve(
                 SRC_HANDLER, // Recipient, address
-                100000000000 // Amount, uint256
+                100000000000000000000 // Amount, uint256
             )
             .send({
                 from: accounts[0]

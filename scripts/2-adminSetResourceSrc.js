@@ -1,7 +1,7 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 
-const { goerliProvider, devMnemonicPath, safeReadFile } = require('./const');
+const { ropstenProvider, devMnemonicPath, safeReadFile } = require('./const');
 const { SRC_BRIDGE, SRC_HANDLER, AKITA_TOKEN, AKITA_RESOURCE_ID } = require('./bridgeConstants');
 
 const compiledBridge = require('../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json');
@@ -11,7 +11,7 @@ console.log("Dev mnemonic OK:", devMnemonic != undefined);
 
 const provider = new HDWalletProvider(
     devMnemonic,
-    goerliProvider
+    ropstenProvider
 );
     
 const web3 = new Web3(provider);
