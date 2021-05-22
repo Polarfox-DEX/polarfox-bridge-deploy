@@ -1,3 +1,5 @@
+const ethers = require('ethers');
+
 const SRC_GATEWAY = 'https://goerli-light.eth.linkpool.io/';
 const DST_GATEWAY = 'https://avalanche--fuji--rpc.datahub.figment.io/apikey/a3ba277065924a5c20d03c4afac67be8/ext/bc/C/rpc';
 
@@ -10,12 +12,14 @@ const DST_PK = '';
 const AKITA_TOKEN = '0x4cfbaE28B870F5f1F1BCbe6337a2BF67573a72ec';
 const AKITA_RESOURCE_ID = '0x0000000000000000000000004cfbaE28B870F5f1F1BCbe6337a2BF67573a72ec';
 
-const SRC_BRIDGE = '0x7e8e982c1c3A2e9C6d9B97015Ab96127aF8D5439';
-const SRC_HANDLER = '0x777Fc3e7B1F97E1B9e77feE3550d12b71BCf63ff';
+const SRC_BRIDGE = '';
+const SRC_HANDLER = '';
+const SRC_BRIDGE_FEE = ethers.utils.parseEther(0.01.toString()) // Fee in ETH, uint256
 
-const DST_BRIDGE = '0x699b56d7Ffbd733c8C2DC2b7805E969eAc5777d8';
-const DST_HANDLER = '0x2Fa38a5155C1f5A060da8278024a1596FeD7BBa5';
-const DST_TOKEN = '0x999146319b7e7e4cc0D97B13754DDa859FA083c3';
+const DST_BRIDGE = '';
+const DST_HANDLER = '';
+const DST_TOKEN = '';
+const DST_BRIDGE_FEE = ethers.utils.parseEther(0.05.toString()) // Fee in AVAX, uint256
 
 // Export
 module.exports = {
@@ -29,7 +33,9 @@ module.exports = {
     AKITA_RESOURCE_ID,
     SRC_BRIDGE,
     SRC_HANDLER,
+    SRC_BRIDGE_FEE,
     DST_BRIDGE,
     DST_HANDLER,
-    DST_TOKEN
+    DST_TOKEN,
+    DST_BRIDGE_FEE
 };

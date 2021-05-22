@@ -3,7 +3,7 @@ const ethers = require('ethers');
 const Web3 = require('web3');
 
 const { goerliProvider, devMnemonicPath, safeReadFile } = require('./const');
-const { SRC_ADDR } = require('./bridgeConstants');
+const { SRC_ADDR, SRC_BRIDGE_FEE } = require('./bridgeConstants');
 
 const bridge = require('../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json');
 
@@ -30,9 +30,7 @@ const deployBridgeSrc = async () => {
                     0, // Chain ID, uint8
                     [ SRC_ADDR ], // Initial relayers, address[] memory
                     1, // Initial relayer threshold, uint256
-                    ethers.utils.parseEther(
-                        0.01 // Fee in ETH, uint256
-                    .toString()),
+                    SRC_BRIDGE_FEE, // Fee in ETH, uint256
                     100 // Expiry, uint256
                 ]
             })

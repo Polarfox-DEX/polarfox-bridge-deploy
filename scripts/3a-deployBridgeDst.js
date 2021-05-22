@@ -30,9 +30,7 @@ const deployBridgeDst = async () => {
                     1, // Chain ID, uint8
                     [ DST_ADDR ], // Initial relayers, address[] memory
                     1, // Initial relayer threshold, uint256
-                    ethers.utils.parseEther(
-                        0.05 // Fee in AVAX, uint256
-                    .toString()),
+                    DST_BRIDGE_FEE, // Fee in AVAX, uint256
                     100 // Expiry, uint256
                 ]
             })
