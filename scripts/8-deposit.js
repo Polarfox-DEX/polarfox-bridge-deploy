@@ -28,7 +28,7 @@ const deposit = async () => {
 
     // Create the data
     const data = '0x' +
-        ethers.utils.hexZeroPad(ethers.utils.bigNumberify(amount).toHexString(), 32).substr(2) + // Deposit Amount (32 bytes)
+        ethers.utils.hexZeroPad(ethers.BigNumber.from(amount).toHexString(), 32).substr(2) + // Deposit Amount (32 bytes)
         ethers.utils.hexZeroPad(ethers.utils.hexlify((DST_ADDR.length - 2)/2), 32).substr(2) + // len(recipientAddress) (32 bytes)
         DST_ADDR.substr(2);   
 

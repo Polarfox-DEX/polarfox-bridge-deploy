@@ -11,8 +11,8 @@ const ropstenProvider = 'https://ropsten.infura.io/v3/418e2ad2a59645cab005c2a171
 const goerliProvider = 'https://goerli.infura.io/v3/418e2ad2a59645cab005c2a1712a1873';
 
 // Danger zone
-const devMnemonicPath = 'C:/Users/aguil/Documents/Blockchain/DevMnemonic_Firefox.txt';
-const avaxDevMnemonicPath = 'C:/Users/aguil/Documents/Blockchain/DevMnemonic_Avax.txt';
+const devMnemonicPath = '../mnemonic';
+const avaxDevMnemonicPath = '';
 const privateKeyPath = '';
 
 // Utilities
