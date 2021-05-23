@@ -4,7 +4,6 @@ const Web3 = require('web3');
 const { ropstenProvider, devMnemonicPath, safeReadFile } = require('./const');
 const { AKITA_TOKEN, SRC_HANDLER } = require('./bridgeConstants');
 
-// TODO: Might not work for AKITA
 const compiledERC20 = require('../cb-sol-cli/chainbridge-solidity/build/contracts/ERC20.json');
 
 const devMnemonic = safeReadFile(devMnemonicPath);
@@ -22,7 +21,7 @@ const erc20 = new web3.eth.Contract(
     AKITA_TOKEN
 );
 
-const approveDeposit = async () => {``
+const approveDepositSrc = async () => {
     try {
         const accounts = await web3.eth.getAccounts();
     
@@ -39,8 +38,8 @@ const approveDeposit = async () => {``
         console.log('Done!');
     }
     catch(error) {
-        console.error("An error occurred in approveDeposit():\n", error);
+        console.error("An error occurred in approveDepositSrc():\n", error);
     }
 };
 
-approveDeposit();
+approveDepositSrc();

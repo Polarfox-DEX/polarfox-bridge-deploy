@@ -8,10 +8,11 @@ const fujiProvider = 'https://avalanche--fuji--rpc.datahub.figment.io/apikey/9db
 // ETH providers
 const ethereumProvider = 'https://mainnet.infura.io/v3/418e2ad2a59645cab005c2a1712a1873';
 const ropstenProvider = 'https://ropsten.infura.io/v3/418e2ad2a59645cab005c2a1712a1873';
+const rinkebyProvider = 'https://rinkeby.infura.io/v3/418e2ad2a59645cab005c2a1712a1873';
 const goerliProvider = 'https://goerli.infura.io/v3/418e2ad2a59645cab005c2a1712a1873';
 
 // Danger zone
-const devMnemonicPath = '../mnemonic';
+const devMnemonicPath = 'C:/Polarfox/mnemonic';
 const avaxDevMnemonicPath = '';
 const privateKeyPath = '';
 
@@ -31,6 +32,7 @@ module.exports = {
     fujiProvider,
     ethereumProvider,
     ropstenProvider,
+    rinkebyProvider,
     goerliProvider,
     devMnemonicPath,
     avaxDevMnemonicPath,

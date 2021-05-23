@@ -2,7 +2,7 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 
 const { fujiProvider, devMnemonicPath, safeReadFile } = require('./const');
-const { DST_HANDLER, DST_TOKEN } = require('./bridgeConstants');
+const { DST_HANDLER, WAKITA_TOKEN } = require('./bridgeConstants');
 
 const compiledERC20 = require('../cb-sol-cli/chainbridge-solidity/build/contracts/ERC20PresetMinterPauser.json');
 
@@ -18,7 +18,7 @@ const web3 = new Web3(provider);
 
 const erc20 = new web3.eth.Contract(
     compiledERC20.abi,
-    DST_TOKEN
+    WAKITA_TOKEN
 );
 
 const grantRole = async () => {

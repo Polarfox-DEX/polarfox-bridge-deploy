@@ -22,7 +22,7 @@ const bridge = new web3.eth.Contract(
     SRC_BRIDGE
 );
 
-const deposit = async () => {
+const depositSrc = async () => {
     const amount = '100000000000000000000'
     const targetChainId = 1 // 0 is the source chain, 1 is the destination chain, 2+ are other future destination chains
 
@@ -56,8 +56,8 @@ const deposit = async () => {
         console.log('Done!');
     }
     catch(error) {
-        console.error("An error occurred in deposit():\n", error);
+        console.error("An error occurred in depositSrc():\n", error);
     }
 };
 
-deposit();
+depositSrc();
