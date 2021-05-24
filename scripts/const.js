@@ -13,8 +13,6 @@ const goerliProvider = 'https://goerli.infura.io/v3/418e2ad2a59645cab005c2a1712a
 
 // Danger zone
 const devMnemonicPath = 'C:/Polarfox/mnemonic';
-const avaxDevMnemonicPath = '';
-const privateKeyPath = '';
 
 // Utilities
 function safeReadFile(path) {
@@ -35,6 +33,5 @@ module.exports = {
     rinkebyProvider,
     goerliProvider,
     devMnemonicPath,
-    avaxDevMnemonicPath,
     safeReadFile
 };

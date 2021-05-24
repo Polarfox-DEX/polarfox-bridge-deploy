@@ -1,9 +1,8 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const ethers = require('ethers');
 const Web3 = require('web3');
 
 const { ropstenProvider, devMnemonicPath, safeReadFile } = require('./const');
-const { SRC_ADDR, SRC_BRIDGE_FEE } = require('./bridgeConstants');
+const { RELAYERS_ADDR, ETH_BRIDGE_FEE } = require('./bridgeConstants');
 
 const bridge = require('../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json');
 
@@ -27,11 +26,11 @@ const deployBridgeSrc = async () => {
             .deploy({
                 data: '0x' + bridge.evm.bytecode.object,
                 arguments: [
-                    0, // Chain ID, uint8
-                    [ SRC_ADDR ], // Initial relayers, address[] memory
-                    1, // Initial relayer threshold, uint256
-                    SRC_BRIDGE_FEE, // Fee in ETH, uint256
-                    100 // Expiry, uint256
+                    ETH_CHAINID, // Chain ID, uint8
+                    RELAYERS_ADDR, // Initial relayers, address[] memory
+                    RELAYER_THRESHOLD, // Number of votes needed for a deposit proposal to be considered passed, uint256
+                    ETH_BRIDGE_FEE, // Fee in ETH, uint256
+                    ETH_EXPIRY // Expiry, uint256
                 ]
             })
             .send({

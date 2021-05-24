@@ -30,7 +30,7 @@ const depositDst = async () => {
     const data = '0x' +
         ethers.utils.hexZeroPad(ethers.BigNumber.from(amount).toHexString(), 32).substr(2) + // Deposit Amount (32 bytes)
         ethers.utils.hexZeroPad(ethers.utils.hexlify((SRC_ADDR.length - 2)/2), 32).substr(2) + // len(recipientAddress) (32 bytes)
-        SRC_ADDR.substr(2);   
+        SRC_ADDR.substr(2); // TODO: Update the SRC_ADDR here. What changes when there are multiple relayers?
 
     console.log('Data:', data)
     console.log('Data length:', data.length-2)
