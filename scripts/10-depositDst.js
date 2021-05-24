@@ -3,7 +3,7 @@ const Web3 = require('web3');
 const ethers = require('ethers');
 
 const { rinkebyProvider, devMnemonicPath, safeReadFile } = require('./const');
-const { DST_BRIDGE, SRC_ADDR, AKITA_RESOURCE_ID, DST_BRIDGE_FEE } = require('./bridgeConstants');
+const { AVAX_BRIDGE, SRC_ADDR, AKITA_RESOURCE_ID, AVAX_BRIDGE_FEE } = require('./bridgeConstants');
 
 const compiledBridge = require('../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json');
 
@@ -19,7 +19,7 @@ const web3 = new Web3(provider);
 
 const bridge = new web3.eth.Contract(
     compiledBridge.abi,
-    DST_BRIDGE
+    AVAX_BRIDGE
 );
 
 const depositDst = async () => {
@@ -47,7 +47,7 @@ const depositDst = async () => {
             )
             .send({
                 from: accounts[0],
-                value: DST_BRIDGE_FEE
+                value: AVAX_BRIDGE_FEE
             });
         
         console.log('Tx block number:', tx.blockNumber);

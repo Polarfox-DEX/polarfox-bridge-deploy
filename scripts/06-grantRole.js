@@ -2,7 +2,7 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 
 const { fujiProvider, devMnemonicPath, safeReadFile } = require('./const');
-const { DST_HANDLER, WAKITA_TOKEN } = require('./bridgeConstants');
+const { AVAX_HANDLER, WAKITA_TOKEN } = require('./bridgeConstants');
 
 const compiledERC20 = require('../cb-sol-cli/chainbridge-solidity/build/contracts/ERC20PresetMinterPauser.json');
 
@@ -33,7 +33,7 @@ const grantRole = async () => {
     
         await erc20.methods.grantRole(
                 MINTER_ROLE, // Role, bytes32
-                DST_HANDLER // Minter, address
+                AVAX_HANDLER // Minter, address
             )
             .send({
                 from: accounts[0]

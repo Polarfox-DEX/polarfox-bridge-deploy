@@ -1,7 +1,7 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 
-const { ropstenProvider, devMnemonicPath, safeReadFile } = require('./const');
+const { rinkebyProvider, devMnemonicPath, safeReadFile } = require('./const');
 const { AKITA_TOKEN, SRC_HANDLER } = require('./bridgeConstants');
 
 const compiledERC20 = require('../cb-sol-cli/chainbridge-solidity/build/contracts/ERC20.json');
@@ -11,7 +11,7 @@ console.log("Dev mnemonic OK:", devMnemonic != undefined);
 
 const provider = new HDWalletProvider(
     devMnemonic,
-    ropstenProvider
+    rinkebyProvider
 );
     
 const web3 = new Web3(provider);

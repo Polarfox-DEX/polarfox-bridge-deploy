@@ -2,8 +2,8 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 const ethers = require('ethers');
 
-const { ropstenProvider, devMnemonicPath, safeReadFile } = require('./const');
-const { SRC_BRIDGE, DST_ADDR, AKITA_RESOURCE_ID, SRC_BRIDGE_FEE } = require('./bridgeConstants');
+const { rinkebyProvider, devMnemonicPath, safeReadFile } = require('./const');
+const { SRC_BRIDGE, AVAX_ADDR, AKITA_RESOURCE_ID, SRC_BRIDGE_FEE } = require('./bridgeConstants');
 
 const compiledBridge = require('../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json');
 
@@ -12,7 +12,7 @@ console.log("Dev mnemonic OK:", devMnemonic != undefined);
 
 const provider = new HDWalletProvider(
     devMnemonic,
-    ropstenProvider
+    rinkebyProvider
 );
     
 const web3 = new Web3(provider);
@@ -29,8 +29,8 @@ const depositSrc = async () => {
     // Create the data
     const data = '0x' +
         ethers.utils.hexZeroPad(ethers.BigNumber.from(amount).toHexString(), 32).substr(2) + // Deposit Amount (32 bytes)
-        ethers.utils.hexZeroPad(ethers.utils.hexlify((DST_ADDR.length - 2)/2), 32).substr(2) + // len(recipientAddress) (32 bytes)
-        DST_ADDR.substr(2);   
+        ethers.utils.hexZeroPad(ethers.utils.hexlify((AVAX_ADDR.length - 2)/2), 32).substr(2) + // len(recipientAddress) (32 bytes)
+        AVAX_ADDR.substr(2);   
 
     console.log('Data:', data)
     console.log('Data length:', data.length-2)

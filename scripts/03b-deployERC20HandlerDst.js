@@ -2,7 +2,7 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 
 const { fujiProvider, devMnemonicPath, safeReadFile } = require('./const');
-const { DST_BRIDGE } = require('./bridgeConstants');
+const { AVAX_BRIDGE } = require('./bridgeConstants');
 
 const erc20Handler = require('../cb-sol-cli/chainbridge-solidity/build/contracts/ERC20Handler.json');
 
@@ -26,7 +26,7 @@ const deployERC20HandlerDst = async () => {
             .deploy({
                 data: '0x' + erc20Handler.evm.bytecode.object,
                 arguments: [
-                    DST_BRIDGE, // Bridge address, address
+                    AVAX_BRIDGE, // Bridge address, address
                     [], // Initial resource IDs, bytes32[] memory
                     [], // Initial contract addresses, address[] memory
                     [], // Burnable contract addresses, address[] memory

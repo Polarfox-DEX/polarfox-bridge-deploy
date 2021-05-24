@@ -1,8 +1,8 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 
-const { ropstenProvider, devMnemonicPath, safeReadFile } = require('./const');
-const { SRC_BRIDGE, SRC_HANDLER, AKITA_TOKEN, AKITA_RESOURCE_ID } = require('./bridgeConstants');
+const { rinkebyProvider, devMnemonicPath, safeReadFile } = require('./const');
+const { ETH_BRIDGE, ETH_HANDLER, AKITA_TOKEN, AKITA_RESOURCE_ID } = require('./bridgeConstants');
 
 const compiledBridge = require('../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json');
 
@@ -11,24 +11,24 @@ console.log("Dev mnemonic OK:", devMnemonic != undefined);
 
 const provider = new HDWalletProvider(
     devMnemonic,
-    ropstenProvider
+    rinkebyProvider
 );
     
 const web3 = new Web3(provider);
 
 const bridge = new web3.eth.Contract(
     compiledBridge.abi,
-    SRC_BRIDGE
+    ETH_BRIDGE
 );
 
-const adminSetResource = async () => {
+const adminSetResourceSrc = async () => {
     try {
         const accounts = await web3.eth.getAccounts();
     
         console.log('Attempting to call admitSetResource() from the account', accounts[0]);
     
         await bridge.methods.adminSetResource(
-                SRC_HANDLER, // Handler address, address
+                ETH_HANDLER, // Handler address, address
                 AKITA_RESOURCE_ID, // Resource ID, bytes32
                 AKITA_TOKEN // Token address, address
             )
@@ -39,8 +39,8 @@ const adminSetResource = async () => {
         console.log('Done!');
     }
     catch(error) {
-        console.error("An error occurred in admitSetResource():\n", error);
+        console.error("An error occurred in admitSetResourceSrc():\n", error);
     }
 };
 
-adminSetResource();
+adminSetResourceSrc();
