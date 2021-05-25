@@ -3,7 +3,7 @@ const Web3 = require('web3');
 const ethers = require('ethers');
 
 const { rinkebyProvider, devMnemonicPath, safeReadFile } = require('./const');
-const { SRC_BRIDGE, AVAX_ADDR, AKITA_RESOURCE_ID, SRC_BRIDGE_FEE } = require('./bridgeConstants');
+const { ETH_BRIDGE, RECIPIENT_ADDR, AKITA_RESOURCE_ID, ETH_BRIDGE_FEE, AVAX_CHAINID } = require('./bridgeConstants');
 
 const compiledBridge = require('../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json');
 
@@ -19,18 +19,17 @@ const web3 = new Web3(provider);
 
 const bridge = new web3.eth.Contract(
     compiledBridge.abi,
-    SRC_BRIDGE
+    ETH_BRIDGE
 );
 
 const depositSrc = async () => {
-    const amount = '100000000000000000000'
-    const targetChainId = 1 // 0 is the source chain, 1 is the destination chain, 2+ are other future destination chains
+    const amount = '10000000000000000000000'
 
     // Create the data
     const data = '0x' +
         ethers.utils.hexZeroPad(ethers.BigNumber.from(amount).toHexString(), 32).substr(2) + // Deposit Amount (32 bytes)
-        ethers.utils.hexZeroPad(ethers.utils.hexlify((AVAX_ADDR.length - 2)/2), 32).substr(2) + // len(recipientAddress) (32 bytes)
-        AVAX_ADDR.substr(2);   
+        ethers.utils.hexZeroPad(ethers.utils.hexlify((RECIPIENT_ADDR.length - 2)/2), 32).substr(2) + // len(recipientAddress) (32 bytes)
+        RECIPIENT_ADDR.substr(2);   
 
     console.log('Data:', data)
     console.log('Data length:', data.length-2)
@@ -41,13 +40,13 @@ const depositSrc = async () => {
         console.log('Attempting to deposit from the account', accounts[0]);
     
         const tx = await bridge.methods.deposit(
-                targetChainId, // destinationChainID, uint8
+                AVAX_CHAINID, // destinationChainID, uint8
                 AKITA_RESOURCE_ID, // resourceID, bytes32
                 data, // data, bytes calldata
             )
             .send({
                 from: accounts[0],
-                value: SRC_BRIDGE_FEE
+                value: ETH_BRIDGE_FEE
             });
         
         console.log('Tx block number:', tx.blockNumber);

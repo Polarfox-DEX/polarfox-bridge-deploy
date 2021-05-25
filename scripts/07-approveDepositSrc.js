@@ -2,7 +2,7 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 
 const { rinkebyProvider, devMnemonicPath, safeReadFile } = require('./const');
-const { AKITA_TOKEN, SRC_HANDLER } = require('./bridgeConstants');
+const { AKITA_TOKEN, ETH_HANDLER } = require('./bridgeConstants');
 
 const compiledERC20 = require('../cb-sol-cli/chainbridge-solidity/build/contracts/ERC20.json');
 
@@ -28,8 +28,8 @@ const approveDepositSrc = async () => {
         console.log('Attempting to approve deposit from the account', accounts[0]);
 
         await erc20.methods.approve(
-                SRC_HANDLER, // Recipient, address
-                100000000000000000000 // Amount, uint256
+                ETH_HANDLER, // Recipient, address
+                '10000000000000000000000' // Amount, uint256
             )
             .send({
                 from: accounts[0]

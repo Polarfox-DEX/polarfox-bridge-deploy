@@ -29,7 +29,7 @@ const approveDepositDst = async () => {
 
         await erc20.methods.approve(
                 AVAX_HANDLER, // Recipient, address
-                100000000000000000000 // Amount, uint256
+                '100000000000000000000' // Amount, uint256
             )
             .send({
                 from: accounts[0]

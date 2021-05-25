@@ -3,6 +3,9 @@ const ethers = require('ethers')
 const ETH_GATEWAY = 'https://rinkeby-light.eth.linkpool.io'
 const AVAX_GATEWAY = 'https://api.avax-test.network/ext/bc/C/rpc'
 
+// Recipient address
+const RECIPIENT_ADDR = '0x211550Ac42f0E8E82dda7CBC7B0CfCB0C710f954'
+
 // Relayers
 const RELAYERS_ADDR = [
   '0x54e478fe12699206BD5a7a70725847eFe9A540a9',
@@ -40,6 +43,7 @@ const WAKITA_SYMBOL = 'wAKITA'
 module.exports = {
     ETH_GATEWAY,
     AVAX_GATEWAY,
+    RECIPIENT_ADDR,
     RELAYERS_ADDR,
     RELAYER_THRESHOLD,
     ETH_BRIDGE,
