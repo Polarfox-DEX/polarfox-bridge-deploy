@@ -5,7 +5,7 @@ const ethers = require('ethers')
 const { rinkebyProvider, devMnemonicPath, safeReadFile } = require('./const')
 const { ETH_BRIDGE, RECIPIENT_ADDR, AKITA_RESOURCE_ID, ETH_BRIDGE_FEE, AVAX_CHAINID } = require('./bridgeConstants')
 
-const compiledBridge = require('../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json')
+const compiledBridge = require('../../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json')
 
 const devMnemonic = safeReadFile(devMnemonicPath)
 console.log('Dev mnemonic OK:', devMnemonic != undefined)

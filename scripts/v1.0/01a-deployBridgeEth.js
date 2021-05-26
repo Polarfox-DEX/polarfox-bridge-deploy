@@ -1,26 +1,19 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider')
-const ethers = require('ethers')
 const Web3 = require('web3')
 
-const { fujiProvider, devMnemonicPath, safeReadFile } = require('./const')
-const {
-  RELAYERS_ADDR,
-  RELAYER_THRESHOLD,
-  AVAX_CHAINID,
-  AVAX_EXPIRY,
-  AVAX_BRIDGE_FEE,
-} = require('./bridgeConstants')
+const { rinkebyProvider, devMnemonicPath, safeReadFile } = require('./const')
+const { ETH_CHAINID, RELAYERS_ADDR, RELAYER_THRESHOLD, ETH_BRIDGE_FEE, ETH_EXPIRY } = require('./bridgeConstants')
 
-const bridge = require('../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json')
+const bridge = require('../../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json')
 
 const devMnemonic = safeReadFile(devMnemonicPath)
 console.log('Dev mnemonic OK:', devMnemonic != undefined)
 
-const provider = new HDWalletProvider(devMnemonic, fujiProvider)
+const provider = new HDWalletProvider(devMnemonic, rinkebyProvider)
 
 const web3 = new Web3(provider)
 
-const deployBridgeDst = async () => {
+const deployBridgeSrc = async () => {
   try {
     const accounts = await web3.eth.getAccounts()
 
@@ -30,11 +23,11 @@ const deployBridgeDst = async () => {
       .deploy({
         data: bridge.bytecode,
         arguments: [
-          AVAX_CHAINID, // Chain ID, uint8
+          ETH_CHAINID, // Chain ID, uint8
           RELAYERS_ADDR, // Initial relayers, address[] memory
-          RELAYER_THRESHOLD, // Initial relayer threshold, uint256
-          AVAX_BRIDGE_FEE, // Fee in AVAX, uint256
-          AVAX_EXPIRY, // Expiry, uint256
+          RELAYER_THRESHOLD, // Number of votes needed for a deposit proposal to be considered passed, uint256
+          ETH_BRIDGE_FEE, // Fee in ETH, uint256
+          ETH_EXPIRY, // Expiry, uint256
         ],
       })
       .send({
@@ -43,8 +36,8 @@ const deployBridgeDst = async () => {
 
     console.log('Bridge deployed to', deployedBridge.options.address)
   } catch (error) {
-    console.error('An error occurred in deployBridgeDst():\n', error)
+    console.error('An error occurred in deployBridgeSrc():\n', error)
   }
 }
 
-deployBridgeDst()
+deployBridgeSrc()

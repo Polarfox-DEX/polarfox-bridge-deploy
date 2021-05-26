@@ -2,12 +2,12 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 
 const { fujiProvider, devMnemonicPath, safeReadFile } = require('./const');
-const { AVAX_HANDLER, WAKITA_TOKEN } = require('./bridgeConstants');
+const { WAKITA_TOKEN, AVAX_HANDLER } = require('./bridgeConstants');
 
-const compiledERC20 = require('../cb-sol-cli/chainbridge-solidity/build/contracts/ERC20PresetMinterPauser.json');
+const compiledERC20 = require('../../cb-sol-cli/chainbridge-solidity/build/contracts/ERC20PresetMinterPauser.json');
 
 const devMnemonic = safeReadFile(devMnemonicPath);
-console.log("Dev mnemonic OK:", devMnemonic != undefined);
+console.log("Dev mnemonic OK:", devMnemonic ? true : false);
 
 const provider = new HDWalletProvider(
     devMnemonic,
@@ -21,32 +21,28 @@ const erc20 = new web3.eth.Contract(
     WAKITA_TOKEN
 );
 
-const grantRole = async () => {
+const approveDepositAvax = async () => {
     try {
         const accounts = await web3.eth.getAccounts();
     
-        console.log('Attempting to grant role from the account', accounts[0]);
+        console.log('Attempting to approve deposit from the account', accounts[0]);
 
-        let MINTER_ROLE = await erc20.methods.MINTER_ROLE().call();
-
-        console.log('Minter role:', MINTER_ROLE)
-    
-        const tx = await erc20.methods.grantRole(
-                MINTER_ROLE, // Role, bytes32
-                AVAX_HANDLER // Minter, address
+        const tx = await erc20.methods.approve(
+                AVAX_HANDLER, // Recipient, address
+                '1000000000000000000000' // Amount, uint256
             )
             .send({
                 from: accounts[0]
             });
-        
+
         console.log('Tx block number:', tx.blockNumber);
         console.log('Tx transaction hash:', tx.transactionHash);
 
         console.log('Done!');
     }
     catch(error) {
-        console.error("An error occurred in grantRole():\n", error);
+        console.error("An error occurred in approveDepositAvax():\n", error);
     }
 };
 
-grantRole();
+approveDepositAvax();

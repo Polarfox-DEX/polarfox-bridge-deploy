@@ -2,9 +2,9 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 
 const { rinkebyProvider, devMnemonicPath, safeReadFile } = require('./const');
-const { ETH_BRIDGE, ETH_HANDLER, AKITA_TOKEN, AKITA_RESOURCE_ID } = require('./bridgeConstants');
+const { AKITA_TOKEN, ETH_HANDLER } = require('./bridgeConstants');
 
-const compiledBridge = require('../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json');
+const compiledERC20 = require('../../cb-sol-cli/chainbridge-solidity/build/contracts/ERC20.json');
 
 const devMnemonic = safeReadFile(devMnemonicPath);
 console.log("Dev mnemonic OK:", devMnemonic != undefined);
@@ -16,34 +16,33 @@ const provider = new HDWalletProvider(
     
 const web3 = new Web3(provider);
 
-const bridge = new web3.eth.Contract(
-    compiledBridge.abi,
-    ETH_BRIDGE
+const erc20 = new web3.eth.Contract(
+    compiledERC20.abi,
+    AKITA_TOKEN
 );
 
-const adminSetResourceEth = async () => {
+const approveDepositSrc = async () => {
     try {
         const accounts = await web3.eth.getAccounts();
     
-        console.log('Attempting to call admitSetResource() from the account', accounts[0]);
-    
-        const tx = await bridge.methods.adminSetResource(
-                ETH_HANDLER, // Handler address, address
-                AKITA_RESOURCE_ID, // Resource ID, bytes32
-                AKITA_TOKEN // Token address, address
+        console.log('Attempting to approve deposit from the account', accounts[0]);
+
+        const tx = await erc20.methods.approve(
+                ETH_HANDLER, // Recipient, address
+                '10000000000000000000000' // Amount, uint256
             )
             .send({
                 from: accounts[0]
             });
-        
+
         console.log('Tx block number:', tx.blockNumber);
         console.log('Tx transaction hash:', tx.transactionHash);
 
         console.log('Done!');
     }
     catch(error) {
-        console.error("An error occurred in admitSetResourceEth():\n", error);
+        console.error("An error occurred in approveDepositSrc():\n", error);
     }
 };
 
-adminSetResourceEth();
+approveDepositSrc();
