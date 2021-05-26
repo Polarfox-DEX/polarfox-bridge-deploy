@@ -1,8 +1,8 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 
-const { rinkebyProvider, devMnemonicPath, safeReadFile } = require('./const');
-const { ETH_BRIDGE } = require('./bridgeConstants');
+const { fujiProvider, devMnemonicPath, safeReadFile } = require('./const');
+const { AVAX_BRIDGE } = require('./bridgeConstants');
 
 const erc20Handler = require('../cb-sol-cli/chainbridge-solidity/build/contracts/ERC20Handler.json');
 
@@ -11,12 +11,12 @@ console.log("Dev mnemonic OK:", devMnemonic != undefined);
 
 const provider = new HDWalletProvider(
     devMnemonic,
-    rinkebyProvider
+    fujiProvider
 );
     
 const web3 = new Web3(provider);
 
-const deployERC20HandlerSrc = async () => {
+const deployERC20HandlerDst = async () => {
     try {
         const accounts = await web3.eth.getAccounts();
     
@@ -24,9 +24,9 @@ const deployERC20HandlerSrc = async () => {
     
         const deployedERC20Handler = await new web3.eth.Contract(erc20Handler.abi)
             .deploy({
-                data: '0x' + erc20Handler.evm.bytecode.object,
+                data: erc20Handler.bytecode,
                 arguments: [
-                    ETH_BRIDGE, // Bridge address, address
+                    AVAX_BRIDGE, // Bridge address, address
                     [], // Initial resource IDs, bytes32[] memory
                     [], // Initial contract addresses, address[] memory
                     [], // Burnable contract addresses, address[] memory
@@ -39,8 +39,8 @@ const deployERC20HandlerSrc = async () => {
         console.log('ERC20 handler deployed to', deployedERC20Handler.options.address);
     }
     catch(error) {
-        console.error("An error occurred in deployERC20HandlerSrc():\n", error);
+        console.error("An error occurred in deployERC20HandlerDst():\n", error);
     }
 };
 
-deployERC20HandlerSrc();
+deployERC20HandlerDst();

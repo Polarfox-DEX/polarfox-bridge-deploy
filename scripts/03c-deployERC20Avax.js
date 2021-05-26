@@ -13,7 +13,7 @@ const provider = new HDWalletProvider(devMnemonic, fujiProvider)
 
 const web3 = new Web3(provider)
 
-const deployERC20 = async () => {
+const deployERC20Avax = async () => {
   try {
     const accounts = await web3.eth.getAccounts()
 
@@ -21,7 +21,7 @@ const deployERC20 = async () => {
 
     const deployedERC20 = await new web3.eth.Contract(erc20.abi)
       .deploy({
-        data: '0x' + erc20.evm.bytecode.object,
+        data: erc20.bytecode,
         arguments: [
           WAKITA_NAME, // Name, string memory
           WAKITA_SYMBOL, // Symbol, string memory
@@ -33,8 +33,8 @@ const deployERC20 = async () => {
 
     console.log('ERC20 deployed to', deployedERC20.options.address)
   } catch (error) {
-    console.error('An error occurred in deployERC20():\n', error)
+    console.error('An error occurred in deployERC20Avax():\n', error)
   }
 }
 
-deployERC20()
+deployERC20Avax()

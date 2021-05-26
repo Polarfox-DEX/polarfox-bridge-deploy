@@ -28,7 +28,7 @@ const deployBridgeDst = async () => {
 
     const deployedBridge = await new web3.eth.Contract(bridge.abi)
       .deploy({
-        data: '0x' + bridge.evm.bytecode.object,
+        data: bridge.bytecode,
         arguments: [
           AVAX_CHAINID, // Chain ID, uint8
           RELAYERS_ADDR, // Initial relayers, address[] memory

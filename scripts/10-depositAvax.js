@@ -22,7 +22,7 @@ const bridge = new web3.eth.Contract(
     AVAX_BRIDGE
 );
 
-const depositDst = async () => {
+const depositAvax = async () => {
     const amount = '100000000000000000000'
     const targetChainId = 0 // 0 is the source chain, 1 is the destination chain, 2+ are other future destination chains
 
@@ -30,7 +30,7 @@ const depositDst = async () => {
     const data = '0x' +
         ethers.utils.hexZeroPad(ethers.BigNumber.from(amount).toHexString(), 32).substr(2) + // Deposit Amount (32 bytes)
         ethers.utils.hexZeroPad(ethers.utils.hexlify((SRC_ADDR.length - 2)/2), 32).substr(2) + // len(recipientAddress) (32 bytes)
-        SRC_ADDR.substr(2); // TODO: Update the SRC_ADDR here. What changes when there are multiple relayers?
+        SRC_ADDR.substr(2);
 
     console.log('Data:', data)
     console.log('Data length:', data.length-2)
@@ -56,8 +56,8 @@ const depositDst = async () => {
         console.log('Done!');
     }
     catch(error) {
-        console.error("An error occurred in depositDst():\n", error);
+        console.error("An error occurred in depositAvax():\n", error);
     }
 };
 
-depositDst();
+depositAvax();

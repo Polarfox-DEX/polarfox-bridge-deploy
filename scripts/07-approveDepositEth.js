@@ -27,14 +27,17 @@ const approveDepositSrc = async () => {
     
         console.log('Attempting to approve deposit from the account', accounts[0]);
 
-        await erc20.methods.approve(
+        const tx = await erc20.methods.approve(
                 ETH_HANDLER, // Recipient, address
                 '10000000000000000000000' // Amount, uint256
             )
             .send({
                 from: accounts[0]
             });
-        
+
+        console.log('Tx block number:', tx.blockNumber);
+        console.log('Tx transaction hash:', tx.transactionHash);
+
         console.log('Done!');
     }
     catch(error) {

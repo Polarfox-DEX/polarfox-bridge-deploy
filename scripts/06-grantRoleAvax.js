@@ -31,7 +31,7 @@ const grantRole = async () => {
 
         console.log('Minter role:', MINTER_ROLE)
     
-        await erc20.methods.grantRole(
+        const tx = await erc20.methods.grantRole(
                 MINTER_ROLE, // Role, bytes32
                 AVAX_HANDLER // Minter, address
             )
@@ -39,6 +39,9 @@ const grantRole = async () => {
                 from: accounts[0]
             });
         
+        console.log('Tx block number:', tx.blockNumber);
+        console.log('Tx transaction hash:', tx.transactionHash);
+
         console.log('Done!');
     }
     catch(error) {
