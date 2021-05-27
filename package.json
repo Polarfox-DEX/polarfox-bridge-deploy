@@ -1,7 +1,17 @@
 {
+  "type": "module",
+  "scripts": {
+    "node": "node --experimental-json-modules --experimental-specifier-resolution=node",
+    "deployErc20": "npm run node -- .\\scripts\\v2.0\\xx-deployERC20Avax.js"
+  },
   "dependencies": {
     "@truffle/hdwallet-provider": "^1.4.0",
     "ethers": "^5.2.0",
+    "tsc": "^2.0.3",
+    "typescript": "^4.3.2",
     "web3": "^1.0.0-beta.35"
+  },
+  "devDependencies": {
+    "eslint": "^7.27.0"
   }
 }

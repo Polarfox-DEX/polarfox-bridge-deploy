@@ -1,0 +1,68 @@
+[
+    {
+        "ResourceId": "0x0000000000000000000000006838d7704445f9FD4161dEEFC78dA3D29bC58Ee5",
+        "EthereumTokenAddress": "0x6838d7704445f9FD4161dEEFC78dA3D29bC58Ee5",
+        "EthereumTokenName": "Akita Inu",
+        "EthereumTokenSymbol": "AKITA",
+        "EthereumTokenDecimals": 18,
+        "AvalancheTokenAddress": "0xFf2Ebd79c0948C8fE69b96434915ABC03Ebb5c37",
+        "AvalancheTokenName": "Akita Inu",
+        "AvalancheTokenSymbol": "AKITA",
+        "AvalancheTokenDecimals": 18
+    },
+    {
+        "ResourceId": "0x000000000000000000000000B829d0b7ccb46FaE637dE4ba37bf79F73b28BdD3",
+        "EthereumTokenAddress": "0xB829d0b7ccb46FaE637dE4ba37bf79F73b28BdD3",
+        "EthereumTokenName": "Test 1",
+        "EthereumTokenSymbol": "TEST1",
+        "EthereumTokenDecimals": 18,
+        "AvalancheTokenAddress": "0x1955Ef3c3eD165B0EC37D8A235E00e7D43558d81",
+        "AvalancheTokenName": "Test 1",
+        "AvalancheTokenSymbol": "TEST1",
+        "AvalancheTokenDecimals": 18
+    },
+    {
+        "ResourceId": "0x000000000000000000000000CB8cc2129F34d8c091dC40e35b902D5b56BacB1D",
+        "EthereumTokenAddress": "0xCB8cc2129F34d8c091dC40e35b902D5b56BacB1D",
+        "EthereumTokenName": "Test 2",
+        "EthereumTokenSymbol": "TEST2",
+        "EthereumTokenDecimals": 18,
+        "AvalancheTokenAddress": "0x638208406e95524725fA4eA0d7776e059EB93886",
+        "AvalancheTokenName": "Test 2",
+        "AvalancheTokenSymbol": "TEST2",
+        "AvalancheTokenDecimals": 18
+    },
+    {
+        "ResourceId": "0x00000000000000000000000019C17c758A984878b6D3BcB94344F5baa5C680EE",
+        "EthereumTokenAddress": "0x19C17c758A984878b6D3BcB94344F5baa5C680EE",
+        "EthereumTokenName": "Test 3",
+        "EthereumTokenSymbol": "TEST3",
+        "EthereumTokenDecimals": 18,
+        "AvalancheTokenAddress": "0xa154060c37517Ce08ba2e693f1e38A1aF1ef5983",
+        "AvalancheTokenName": "Test 3",
+        "AvalancheTokenSymbol": "TEST3",
+        "AvalancheTokenDecimals": 18
+    },
+    {
+        "ResourceId": "0x00000000000000000000000054e7a4EEEA9E3Db5aB187B09D9B4A5d227eC480B",
+        "EthereumTokenAddress": "0x54e7a4EEEA9E3Db5aB187B09D9B4A5d227eC480B",
+        "EthereumTokenName": "Test 4",
+        "EthereumTokenSymbol": "TEST4",
+        "EthereumTokenDecimals": 18,
+        "AvalancheTokenAddress": "0xBA3Ca8e4C5bECC4d9C1356ffF544906B125658A5",
+        "AvalancheTokenName": "Test 4",
+        "AvalancheTokenSymbol": "TEST4",
+        "AvalancheTokenDecimals": 18
+    },
+    {
+        "ResourceId": "0x000000000000000000000000C77349aAE2eF3a6b7D06E6159C7ac3a339f3F94b",
+        "EthereumTokenAddress": "0xC77349aAE2eF3a6b7D06E6159C7ac3a339f3F94b",
+        "EthereumTokenName": "Test 5",
+        "EthereumTokenSymbol": "TEST5",
+        "EthereumTokenDecimals": 18,
+        "AvalancheTokenAddress": "0xbD5E439d6eDCb6FE80078F028f0e417C7f6bfcd5",
+        "AvalancheTokenName": "Test 5",
+        "AvalancheTokenSymbol": "TEST5",
+        "AvalancheTokenDecimals": 18
+    }
+]
