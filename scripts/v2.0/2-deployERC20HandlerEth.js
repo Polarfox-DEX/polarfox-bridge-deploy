@@ -9,18 +9,17 @@ import erc20Handler from '../../cb-sol-cli/chainbridge-solidity/build/contracts/
 import tokenList from './tokenList.json'
 import testTokenList from './testTokenList.json'
 
-const chainId = IS_PRODUCTION ? CHAIN_ID.AVALANCHE : CHAIN_ID.FUJI
+const chainId = IS_PRODUCTION ? CHAIN_ID.ETHEREUM : CHAIN_ID.RINKEBY
 const tokens = IS_PRODUCTION ? tokenList : testTokenList
 
 const devMnemonic = safeReadFile(MNEMONIC)
 console.log('Dev mnemonic OK:', devMnemonic != undefined)
 
-
 const provider = new HDWalletProvider(devMnemonic, PROVIDER[chainId])
 
 const web3 = new Web3(provider)
 
-const deployERC20HandlerAvax = async () => {
+const deployERC20HandlerEth = async () => {
     try {
         const accounts = await web3.eth.getAccounts()
 
@@ -32,8 +31,8 @@ const deployERC20HandlerAvax = async () => {
                 arguments: [
                     BRIDGE[chainId], // Bridge address, address
                     tokens.map((tkn) => tkn.ResourceId), // Initial resource IDs, bytes32[] memory
-                    tokens.map((tkn) => tkn.AvalancheTokenAddress), // Initial contract addresses, address[] memory
-                    tokens.map((tkn) => tkn.AvalancheTokenAddress) // Burnable contract addresses, address[] memory
+                    tokens.map((tkn) => tkn.EthereumTokenAddress), // Initial contract addresses, address[] memory
+                    [] // Burnable contract addresses, address[] memory
                 ]
             })
             .send({
@@ -42,8 +41,8 @@ const deployERC20HandlerAvax = async () => {
 
         console.log('ERC20 handler deployed to', deployedERC20Handler.options.address)
     } catch (error) {
-        console.error('An error occurred in deployERC20HandlerAvax():\n', error)
+        console.error('An error occurred in deployERC20HandlerEth():\n', error)
     }
 }
 
-deployERC20HandlerAvax()
+deployERC20HandlerEth()

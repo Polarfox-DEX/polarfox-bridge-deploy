@@ -43,16 +43,16 @@ export const RELAYER_THRESHOLD = 2 // Number of votes needed for a deposit propo
 // Bridge contracts
 export const BRIDGE = {
   [CHAIN_ID.ETHEREUM]: '',
-  [CHAIN_ID.RINKEBY]: '',
+  [CHAIN_ID.RINKEBY]: '0xA7852b21B7CBB9efe5183FeAFDA4Adb2296Ba425',
   [CHAIN_ID.AVALANCHE]: '',
   [CHAIN_ID.FUJI]: '0xe80003f874a75FB7DB801CFA9ca71b3d5Fa1c3C5'
 }
 
 export const ERC20_HANDLER = {
   [CHAIN_ID.ETHEREUM]: '',
-  [CHAIN_ID.RINKEBY]: '',
+  [CHAIN_ID.RINKEBY]: '0x19683A8503d48D2882C2fF6c475b91706e41d1CC',
   [CHAIN_ID.AVALANCHE]: '',
-  [CHAIN_ID.FUJI]: ''
+  [CHAIN_ID.FUJI]: '0xE60Fe820b4ce42d400f842f2b1eE4c7dd89085a5'
 }
 
 export const ERC721_HANDLER = {
