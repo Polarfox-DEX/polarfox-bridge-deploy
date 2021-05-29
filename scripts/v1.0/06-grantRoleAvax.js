@@ -4,7 +4,7 @@ const Web3 = require('web3');
 const { fujiProvider, devMnemonicPath, safeReadFile } = require('./const');
 const { AVAX_HANDLER, WAKITA_TOKEN } = require('./bridgeConstants');
 
-const compiledERC20 = require('../../cb-sol-cli/chainbridge-solidity/build/contracts/ERC20PresetMinterPauser.json');
+const compiledERC20 = require('../../build/ERC20PresetMinterPauser.json');
 
 const devMnemonic = safeReadFile(devMnemonicPath);
 console.log("Dev mnemonic OK:", devMnemonic != undefined);

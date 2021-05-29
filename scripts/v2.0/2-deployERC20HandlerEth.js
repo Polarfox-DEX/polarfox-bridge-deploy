@@ -4,7 +4,7 @@ import Web3 from 'web3'
 import { IS_PRODUCTION, PROVIDER, MNEMONIC, safeReadFile } from './const'
 import { CHAIN_ID, BRIDGE } from './bridgeConstants'
 
-import erc20Handler from '../../cb-sol-cli/chainbridge-solidity/build/contracts/ERC20Handler.json'
+import erc20Handler from '../../build/ERC20Handler.json'
 
 import tokenList from './tokenList.json'
 import testTokenList from './testTokenList.json'

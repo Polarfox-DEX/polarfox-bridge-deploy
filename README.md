@@ -1,9 +1,8 @@
-# ChainBridge Deploy Tools
+# Polarfox Bridge Deploying Tools
+This repository contains the Polarfox bridge contracts, forked from [ChainBridge](https://github.com/ChainSafe/chainbridge-solidity/), and the tools needed to deploy them.
 
-## Config Builder
+## Compiling the contracts
 
-Please see the [README](/cfgBuilder/README.md).
+`yarn`
 
-## cb-sol-cli
-
-Please see the [README](/cb-sol-cli/README.md).
+`yarn compile`

@@ -43,16 +43,16 @@ export const RELAYER_THRESHOLD = 2 // Number of votes needed for a deposit propo
 // Bridge contracts
 export const BRIDGE = {
     [CHAIN_ID.ETHEREUM]: '',
-    [CHAIN_ID.RINKEBY]: '0xA7852b21B7CBB9efe5183FeAFDA4Adb2296Ba425',
+    [CHAIN_ID.RINKEBY]: '0x39CAf8D6c253d8aDA60DA0eCC18F03d50e27950b',
     [CHAIN_ID.AVALANCHE]: '',
-    [CHAIN_ID.FUJI]: '0xe80003f874a75FB7DB801CFA9ca71b3d5Fa1c3C5'
+    [CHAIN_ID.FUJI]: '0x7538Bca69980b71644F8B58D71b31dCaF65d6bF8'
 }
 
 export const ERC20_HANDLER = {
     [CHAIN_ID.ETHEREUM]: '',
-    [CHAIN_ID.RINKEBY]: '0x19683A8503d48D2882C2fF6c475b91706e41d1CC',
+    [CHAIN_ID.RINKEBY]: '0x5E0e8c3d737E93F933B618AD443908A7c44BE5B0',
     [CHAIN_ID.AVALANCHE]: '',
-    [CHAIN_ID.FUJI]: '0xE60Fe820b4ce42d400f842f2b1eE4c7dd89085a5'
+    [CHAIN_ID.FUJI]: '0x62F66578094602CCA31a13222aFdEEdC3c0c3376'
 }
 
 export const ERC721_HANDLER = {
@@ -65,8 +65,8 @@ export const ERC721_HANDLER = {
 export const BRIDGE_FEE = {
     [CHAIN_ID.ETHEREUM]: ethers.utils.parseEther('0'),
     [CHAIN_ID.RINKEBY]: ethers.utils.parseEther('0.01'),
-    [CHAIN_ID.AVALANCHE]: ethers.utils.parseEther('0.5'),
-    [CHAIN_ID.FUJI]: ethers.utils.parseEther('0')
+    [CHAIN_ID.AVALANCHE]: ethers.utils.parseEther('0'),
+    [CHAIN_ID.FUJI]: ethers.utils.parseEther('0.5')
 }
 
 // TODO: What is this number?
@@ -75,11 +75,4 @@ export const EXPIRY = {
     [CHAIN_ID.RINKEBY]: 100,
     [CHAIN_ID.AVALANCHE]: 100,
     [CHAIN_ID.FUJI]: 100
-}
-
-export const AKITA = {
-    [CHAIN_ID.ETHEREUM]: '',
-    [CHAIN_ID.RINKEBY]: '0x6838d7704445f9FD4161dEEFC78dA3D29bC58Ee5',
-    [CHAIN_ID.AVALANCHE]: '',
-    [CHAIN_ID.FUJI]: '0xFf2Ebd79c0948C8fE69b96434915ABC03Ebb5c37'
 }

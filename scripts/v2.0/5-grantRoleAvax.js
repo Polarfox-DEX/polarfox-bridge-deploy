@@ -4,7 +4,7 @@ import Web3 from 'web3'
 import { IS_PRODUCTION, PROVIDER, MNEMONIC, safeReadFile } from './const'
 import { ERC20_HANDLER, CHAIN_ID } from './bridgeConstants'
 
-import compiledErc20 from '../../cb-sol-cli/chainbridge-solidity/build/contracts/ERC20PresetMinterPauser.json'
+import compiledErc20 from '../../build/ERC20PresetMinterPauser.json'
 
 import tokenList from './tokenList.json'
 import testTokenList from './testTokenList.json'
@@ -13,7 +13,6 @@ const devMnemonic = safeReadFile(MNEMONIC)
 console.log('Dev mnemonic OK:', devMnemonic != undefined)
 
 const tokens = IS_PRODUCTION ? tokenList : testTokenList
-
 const chainId = IS_PRODUCTION ? CHAIN_ID.AVALANCHE : CHAIN_ID.FUJI
 
 const provider = new HDWalletProvider(devMnemonic, PROVIDER[chainId])
@@ -40,8 +39,6 @@ async function grantRoleErc20Pmp(token, accounts) {
     const erc20Pmp = new web3.eth.Contract(compiledErc20.abi, token.AvalancheTokenAddress)
 
     let MINTER_ROLE = await erc20Pmp.methods.MINTER_ROLE().call()
-
-    console.log('Minter role:', MINTER_ROLE)
 
     const tx = await erc20Pmp.methods
         .grantRole(

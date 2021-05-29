@@ -11,7 +11,7 @@ const {
   AVAX_BRIDGE_FEE,
 } = require('./bridgeConstants')
 
-const bridge = require('../../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json')
+const bridge = require('../../build/Bridge.json')
 
 const devMnemonic = safeReadFile(devMnemonicPath)
 console.log('Dev mnemonic OK:', devMnemonic != undefined)

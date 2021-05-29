@@ -5,7 +5,7 @@ const ethers = require('ethers');
 const { fujiProvider, devMnemonicPath, safeReadFile } = require('./const');
 const { AVAX_BRIDGE, RECIPIENT_ADDR, AKITA_RESOURCE_ID, AVAX_BRIDGE_FEE, ETH_CHAINID } = require('./bridgeConstants');
 
-const compiledBridge = require('../../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json');
+const compiledBridge = require('../../build/Bridge.json');
 
 const devMnemonic = safeReadFile(devMnemonicPath);
 console.log("Dev mnemonic OK:", devMnemonic != undefined);

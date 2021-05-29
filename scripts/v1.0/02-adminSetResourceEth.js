@@ -4,7 +4,7 @@ const Web3 = require('web3');
 const { rinkebyProvider, devMnemonicPath, safeReadFile } = require('./const');
 const { ETH_BRIDGE, ETH_HANDLER, AKITA_TOKEN, AKITA_RESOURCE_ID } = require('./bridgeConstants');
 
-const compiledBridge = require('../../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json');
+const compiledBridge = require('../../build/Bridge.json');
 
 const devMnemonic = safeReadFile(devMnemonicPath);
 console.log("Dev mnemonic OK:", devMnemonic != undefined);
@@ -25,7 +25,7 @@ const adminSetResourceEth = async () => {
     try {
         const accounts = await web3.eth.getAccounts();
     
-        console.log('Attempting to call admitSetResource() from the account', accounts[0]);
+        console.log('Attempting to call adminSetResource() from the account', accounts[0]);
     
         const tx = await bridge.methods.adminSetResource(
                 ETH_HANDLER, // Handler address, address

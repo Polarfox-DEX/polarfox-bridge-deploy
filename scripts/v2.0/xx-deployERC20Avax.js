@@ -4,7 +4,7 @@ import Web3 from 'web3'
 import { PROVIDER, MNEMONIC, safeReadFile } from './const'
 import { CHAIN_ID } from './bridgeConstants'
 
-import erc20 from '../../cb-sol-cli/chainbridge-solidity/build/contracts/ERC20PresetMinterPauser.json'
+import erc20 from '../../build/ERC20PresetMinterPauser.json'
 
 const devMnemonic = safeReadFile(MNEMONIC)
 console.log('Dev mnemonic OK:', MNEMONIC != undefined)

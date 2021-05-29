@@ -4,7 +4,7 @@ import Web3 from 'web3'
 import { IS_PRODUCTION, PROVIDER, MNEMONIC, safeReadFile } from './const'
 import { CHAIN_ID, BRIDGE_CHAIN_ID, RELAYERS_ADDR, RELAYER_THRESHOLD, EXPIRY, BRIDGE_FEE } from './bridgeConstants'
 
-import bridge from '../../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json'
+import bridge from '../../build/Bridge.json'
 
 const devMnemonic = safeReadFile(MNEMONIC)
 console.log('Dev mnemonic OK:', devMnemonic != undefined)

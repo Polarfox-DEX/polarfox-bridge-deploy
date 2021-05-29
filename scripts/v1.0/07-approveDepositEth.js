@@ -4,7 +4,7 @@ const Web3 = require('web3');
 const { rinkebyProvider, devMnemonicPath, safeReadFile } = require('./const');
 const { AKITA_TOKEN, ETH_HANDLER } = require('./bridgeConstants');
 
-const compiledERC20 = require('../../cb-sol-cli/chainbridge-solidity/build/contracts/ERC20.json');
+const compiledERC20 = require('../../build/ERC20.json');
 
 const devMnemonic = safeReadFile(devMnemonicPath);
 console.log("Dev mnemonic OK:", devMnemonic != undefined);

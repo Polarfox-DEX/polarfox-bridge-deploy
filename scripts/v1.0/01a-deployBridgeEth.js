@@ -4,7 +4,7 @@ const Web3 = require('web3')
 const { rinkebyProvider, devMnemonicPath, safeReadFile } = require('./const')
 const { ETH_CHAINID, RELAYERS_ADDR, RELAYER_THRESHOLD, ETH_BRIDGE_FEE, ETH_EXPIRY } = require('./bridgeConstants')
 
-const bridge = require('../../cb-sol-cli/chainbridge-solidity/build/contracts/Bridge.json')
+const bridge = require('../../build/Bridge.json')
 
 const devMnemonic = safeReadFile(devMnemonicPath)
 console.log('Dev mnemonic OK:', devMnemonic != undefined)
