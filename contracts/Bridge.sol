@@ -217,6 +217,17 @@ contract Bridge is Pausable, AccessControl, SafeMath {
         handler.setResource(resourceID, tokenAddress);
     }
 
+    function adminSetResourceMap(address handlerAddress, bytes32[] memory resourceIDs, address[] memory tokenAddresses) external onlyAdmin {
+        require(resourceIDs.length == tokenAddresses.length, "resourceIDs and tokenAddresses len mismatch");
+
+        IERCHandler handler = IERCHandler(handlerAddress);
+
+        for (uint256 i = 0; i < resourceIDs.length; i++) {
+            _resourceIDToHandlerAddress[resourceIDs[i]] = handlerAddress;
+            handler.setResource(resourceIDs[i], tokenAddresses[i]);
+        }
+    }
+
     /**
         @notice Sets a new resource for handler contracts that use the IGenericHandler interface,
         and maps the {handlerAddress} to {resourceID} in {_resourceIDToHandlerAddress}.
@@ -247,6 +258,14 @@ contract Bridge is Pausable, AccessControl, SafeMath {
     function adminSetBurnable(address handlerAddress, address tokenAddress) external onlyAdmin {
         IERCHandler handler = IERCHandler(handlerAddress);
         handler.setBurnable(tokenAddress);
+    }
+
+    function adminSetBurnableMap(address handlerAddress, address[] memory tokenAddresses) external onlyAdmin {
+        IERCHandler handler = IERCHandler(handlerAddress);
+
+        for (uint256 i = 0; i < tokenAddresses.length; i++) {
+            handler.setBurnable(tokenAddresses[i]);
+        }
     }
 
     /**
