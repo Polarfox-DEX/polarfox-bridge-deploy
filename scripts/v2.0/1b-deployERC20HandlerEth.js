@@ -6,11 +6,7 @@ import { CHAIN_ID, BRIDGE } from './bridgeConstants'
 
 import erc20Handler from '../../build/ERC20Handler.json'
 
-import tokenList from './tokenList.json'
-import testTokenList from './testTokenList.json'
-
 const chainId = IS_PRODUCTION ? CHAIN_ID.ETHEREUM : CHAIN_ID.RINKEBY
-const tokens = IS_PRODUCTION ? tokenList : testTokenList
 
 const devMnemonic = safeReadFile(MNEMONIC)
 console.log('Dev mnemonic OK:', devMnemonic != undefined)
@@ -30,8 +26,8 @@ const deployERC20HandlerEth = async () => {
                 data: erc20Handler.bytecode,
                 arguments: [
                     BRIDGE[chainId], // Bridge address, address
-                    tokens.map((tkn) => tkn.ResourceId), // Initial resource IDs, bytes32[] memory
-                    tokens.map((tkn) => tkn.EthereumTokenAddress), // Initial contract addresses, address[] memory
+                    [], // Initial resource IDs, bytes32[] memory
+                    [], // Initial contract addresses, address[] memory
                     [] // Burnable contract addresses, address[] memory
                 ]
             })
