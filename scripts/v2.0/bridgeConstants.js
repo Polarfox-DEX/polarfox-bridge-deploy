@@ -66,9 +66,9 @@ export const ERC721_HANDLER = {
 }
 
 export const BRIDGE_FEE = {
-    [CHAIN_ID.ETHEREUM]: ethers.utils.parseEther('0'),
+    [CHAIN_ID.ETHEREUM]: ethers.utils.parseEther('0.025'),
     [CHAIN_ID.RINKEBY]: ethers.utils.parseEther('0.01'),
-    [CHAIN_ID.AVALANCHE]: ethers.utils.parseEther('0'),
+    [CHAIN_ID.AVALANCHE]: ethers.utils.parseEther('4'),
     [CHAIN_ID.FUJI]: ethers.utils.parseEther('0.5')
 }
 
