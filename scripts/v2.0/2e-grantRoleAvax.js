@@ -27,7 +27,6 @@ const grantRoleAvax = async () => {
 
         tokens.map(async (tkn) => await grantRoleErc20Pmp(tkn, accounts))
 
-        console.log('Done!')
     } catch (error) {
         console.error('An error occurred in grantRoleAvax():\n', error)
     }

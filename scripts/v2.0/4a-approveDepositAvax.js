@@ -10,7 +10,7 @@ import tokenList from './tokenList.json'
 import testTokenList from './testTokenList.json'
 
 const tokens = IS_PRODUCTION ? tokenList : testTokenList
-const chainId = IS_PRODUCTION ? CHAIN_ID.ETHEREUM : CHAIN_ID.RINKEBY
+const chainId = IS_PRODUCTION ? CHAIN_ID.AVALANCHE : CHAIN_ID.FUJI
 
 const devMnemonic = safeReadFile(MNEMONIC)
 console.log('Dev mnemonic OK:', devMnemonic != undefined)
@@ -19,7 +19,7 @@ const provider = new HDWalletProvider(devMnemonic, PROVIDER[chainId])
 
 const web3 = new Web3(provider)
 
-const approveDepositEth = async () => {
+const approveDepositAvax = async () => {
     try {
         const accounts = await web3.eth.getAccounts()
 
@@ -27,24 +27,24 @@ const approveDepositEth = async () => {
 
         tokens.map(async (tkn) => await approveDeposit(tkn, accounts))
     } catch (error) {
-        console.error('An error occurred in approveDepositEth():\n', error)
+        console.error('An error occurred in approveDepositAvax():\n', error)
     }
 }
 
 async function approveDeposit(token, accounts) {
-    const erc20 = new web3.eth.Contract(compiledERC20.abi, token.EthereumTokenAddress)
+    const erc20 = new web3.eth.Contract(compiledERC20.abi, token.AvalancheTokenAddress)
 
     const tx = await erc20.methods
         .approve(
             ERC20_HANDLER[chainId], // Recipient, address
-            '10000000000000000000000' // Amount, uint256
+            '1000000000000000000000' // Amount, uint256
         )
         .send({
             from: accounts[0]
         })
 
-    console.log(token.EthereumTokenName, '- tx transaction hash:', tx.transactionHash)
+    console.log(token.AvalancheTokenName, '- tx transaction hash:', tx.transactionHash)
     console.log('')
 }
 
-approveDepositEth()
+approveDepositAvax()

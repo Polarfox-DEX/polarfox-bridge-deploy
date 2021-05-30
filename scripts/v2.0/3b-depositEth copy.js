@@ -42,8 +42,6 @@ const depositEth = async () => {
         console.log('Attempting to deposit from the account', accounts[0])
 
         tokens.map(async (tkn) => await deposit(tkn, accounts, data))
-
-        console.log('Done!')
     } catch (error) {
         console.error('An error occurred in depositEth():\n', error)
     }
