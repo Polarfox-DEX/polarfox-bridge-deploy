@@ -6023,7 +6023,21 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
-solc@0.6.12, solc@^0.6.3:
+solc@0.6.4:
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/solc/-/solc-0.6.4.tgz#4b0f11fccd6f5ef9802c6bb1c007abb16881c2ca"
+  integrity sha512-HjUCys7ue9n7lGCa1XNf+wDdEY/wY64CpwnD4iPxW+BYYUX6ytwWXKitoolPXOOVxq4jewvwtL7Pngs+5k954A==
+  dependencies:
+    command-exists "^1.2.8"
+    commander "3.0.2"
+    fs-extra "^0.30.0"
+    js-sha3 "0.8.0"
+    memorystream "^0.3.1"
+    require-from-string "^2.0.0"
+    semver "^5.5.0"
+    tmp "0.0.33"
+
+solc@^0.6.3:
   version "0.6.12"
   resolved "https://registry.yarnpkg.com/solc/-/solc-0.6.12.tgz#48ac854e0c729361b22a7483645077f58cba080e"
   integrity sha512-Lm0Ql2G9Qc7yPP2Ba+WNmzw2jwsrd3u4PobHYlSOxaut3TtUbj9+5ZrT6f4DUpNPEoBaFUOEg9Op9C0mk7ge9g==
