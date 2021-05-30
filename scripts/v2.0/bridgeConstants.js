@@ -69,7 +69,6 @@ export const BRIDGE_FEE = {
     [CHAIN_ID.FUJI]: ethers.utils.parseEther('0.5')
 }
 
-// TODO: What is this number?
 export const EXPIRY = {
     [CHAIN_ID.ETHEREUM]: 100,
     [CHAIN_ID.RINKEBY]: 100,

@@ -20,7 +20,7 @@ const ETH_HANDLER = '0x273C0A938c48CfACCfd915B809DB000B68dC2821'
 const ETH_BRIDGE_FEE = ethers.utils.parseEther('0.01') // Fee in ETH, uint256
 // const ETH_BRIDGE_FEE = ethers.utils.parseEther('0') // Fee in ETH, uint256
 const ETH_CHAINID = 0
-const ETH_EXPIRY = 100 // TODO: What is this number?
+const ETH_EXPIRY = 100
 
 // AVAX bridge
 const AVAX_BRIDGE = '0x1A6B5000b5C36d9bC36Ce59B3Db0Abb92EFaCF3D'
@@ -28,7 +28,7 @@ const AVAX_HANDLER = '0xC02dA1813F0b8209659e244745F34f1644F93505'
 const AVAX_BRIDGE_FEE = ethers.utils.parseEther('5') // Fee in AVAX, uint256
 // const AVAX_BRIDGE_FEE = ethers.utils.parseEther('0') // Fee in AVAX, uint256
 const AVAX_CHAINID = 1
-const AVAX_EXPIRY = 100 // TODO: What is this number?
+const AVAX_EXPIRY = 100
 
 // AKITA
 const AKITA_TOKEN = '0x6838d7704445f9FD4161dEEFC78dA3D29bC58Ee5'
@@ -36,10 +36,6 @@ const AKITA_RESOURCE_ID = '0x0000000000000000000000006838d7704445f9FD4161dEEFC78
 const WAKITA_TOKEN = '0x5E644e0D733Ee7a33359E5C1dD207E534B097987'
 const WAKITA_NAME = 'Wrapped Akita Inu'
 const WAKITA_SYMBOL = 'wAKITA'
-
-// ETH
-// TODO: ETH might have a special status
-// TODO: Check the address of WETH on Pangolin and Zero, see if it's the same
 
 // Export
 module.exports = {
