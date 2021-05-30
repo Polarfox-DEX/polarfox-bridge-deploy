@@ -28,6 +28,9 @@ export const GATEWAY = {
     [CHAIN_ID.FUJI]: 'https://api.avax-test.network/ext/bc/C/rpc'
 }
 
+// Admin address
+export const ADMIN_ADDR = '0x211550Ac42f0E8E82dda7CBC7B0CfCB0C710f954'
+
 // Recipient address
 export const RECIPIENT_ADDR = '0x211550Ac42f0E8E82dda7CBC7B0CfCB0C710f954'
 
