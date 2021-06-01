@@ -22,8 +22,15 @@ export const CHAIN_NAME = {
 }
 
 export const GATEWAY = {
-    [CHAIN_ID.ETHEREUM]: 'https://main-light.eth.linkpool.io',
-    [CHAIN_ID.RINKEBY]: 'https://rinkeby-light.eth.linkpool.io',
+    [CHAIN_ID.ETHEREUM]: 'https://mainnet.infura.io/v3/5e8e2a4685204f4ab907026074f06f2f',
+    [CHAIN_ID.RINKEBY]: 'https://rinkeby.infura.io/v3/5e8e2a4685204f4ab907026074f06f2f',
+    [CHAIN_ID.AVALANCHE]: 'https://api.avax.network/ext/bc/C/rpc',
+    [CHAIN_ID.FUJI]: 'https://api.avax-test.network/ext/bc/C/rpc'
+}
+
+export const GATEWAY_SECOND = {
+    [CHAIN_ID.ETHEREUM]: 'https://mainnet.infura.io/v3/4312979d03e74a6ea206bb1926f5f939',
+    [CHAIN_ID.RINKEBY]: 'https://rinkeby.infura.io/v3/4312979d03e74a6ea206bb1926f5f939',
     [CHAIN_ID.AVALANCHE]: 'https://api.avax.network/ext/bc/C/rpc',
     [CHAIN_ID.FUJI]: 'https://api.avax-test.network/ext/bc/C/rpc'
 }
