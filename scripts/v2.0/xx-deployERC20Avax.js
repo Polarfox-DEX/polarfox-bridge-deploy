@@ -19,7 +19,19 @@ const deployERC20Avax = async () => {
 
         console.log('Attempting to deploy ERC20s from the account', accounts[0])
 
-        const deployedAkita = await new web3.eth.Contract(erc20.abi)
+        const deployedWrappedEther = await new web3.eth.Contract(erc20.abi)
+            .deploy({
+                data: erc20.bytecode,
+                arguments: [
+                    'Wrapped Ether', // Name, string memory
+                    'WETH' // Symbol, string memory
+                ]
+            })
+            .send({
+                from: accounts[0]
+            })
+
+            const deployedAkita = await new web3.eth.Contract(erc20.abi)
             .deploy({
                 data: erc20.bytecode,
                 arguments: [
@@ -91,6 +103,7 @@ const deployERC20Avax = async () => {
                 from: accounts[0]
             })
 
+        console.log('WETH deployed to', deployedWrappedEther.options.address)
         console.log('AKITA deployed to', deployedAkita.options.address)
         console.log('TEST1 deployed to', deployedTest1.options.address)
         console.log('TEST2 deployed to', deployedTest2.options.address)

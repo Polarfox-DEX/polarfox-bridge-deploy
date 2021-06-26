@@ -1,5 +1,16 @@
 [
     {
+        "ResourceId": "0x000000000000000000000000c778417E063141139Fce010982780140Aa0cD5Ab",
+        "EthereumTokenAddress": "0xc778417E063141139Fce010982780140Aa0cD5Ab",
+        "EthereumTokenName": "Wrapped Ether",
+        "EthereumTokenSymbol": "WETH",
+        "EthereumTokenDecimals": 18,
+        "AvalancheTokenAddress": "0x47A4093a09DDb3eD4682235e9B0C2A2A4A5C166C",
+        "AvalancheTokenName": "Wrapped Ether",
+        "AvalancheTokenSymbol": "WETH",
+        "AvalancheTokenDecimals": 18
+    },
+    {
         "ResourceId": "0x0000000000000000000000006838d7704445f9FD4161dEEFC78dA3D29bC58Ee5",
         "EthereumTokenAddress": "0x6838d7704445f9FD4161dEEFC78dA3D29bC58Ee5",
         "EthereumTokenName": "Akita Inu",
